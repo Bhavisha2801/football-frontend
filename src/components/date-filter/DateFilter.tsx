@@ -74,7 +74,7 @@ const DateFilter = () => {
           type="date"
           value={selectedDate}
           onChange={(e) => setSelectedDate(e.target.value)}
-          className="bg-gray-800 text-white text-sm px-4 py-2 rounded-md"
+          className="bg-[#303030] text-white text-sm px-4 py-2 rounded-md cursor-pointer"
         />
       </div>
     </div>

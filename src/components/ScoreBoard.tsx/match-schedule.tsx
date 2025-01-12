@@ -14,17 +14,23 @@ type Match = {
   state: string; // live, scheduled, etc.
 };
 
+type MatchItem = {
+  id: number;
+  name: string;
+  starting_at: string;
+  leg: string;
+  localteam_score: string;
+  state_id: number;
+}
+
 const MatchSchedule: React.FC = () => {
   const { selectedDate } = useSelectedDate(); // Get selectedDate from the context
-  console.log(selectedDate)
   const [matches, setMatches] = useState<Match[]>([]);
-  const { data, error, isLoading } = useMatches(selectedDate);
-
-  console.log(data?.data)
+  const { data } = useMatches(selectedDate);
 
   useEffect(() => {
     if (data) {
-      const formattedMatches = data?.data?.map((match: any) => ({
+      const formattedMatches = data?.data?.map((match: MatchItem) => ({
         id: match.id,
         name: match.name,
         starting_at: match.starting_at,
@@ -54,7 +60,7 @@ const MatchSchedule: React.FC = () => {
       <table className="min-w-full text-white rounded-xl shadow-lg">
         <thead>
           <tr className="bg-black">
-            <th className="text-left py-2 px-4 col-span-2">Time</th>
+            <th className="text-left py-2 px-4 col-span-2">Time - Match</th>
             <th className="text-left py-2 px-4"></th>
           </tr>
         </thead>
@@ -70,13 +76,11 @@ const MatchSchedule: React.FC = () => {
                   : new Date(item.starting_at).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
               </td>
               <td className="py-2 px-4 flex items-center space-x-3">
-                <div className="flex items-center space-x-2">
-                  {/* <img src={item.localTeam.logo} alt={item.localTeam.name} className="w-8 h-8 rounded-full" /> */}
+                <div className="flex items-center space-x-2 sm:text-sm">
                   <span>{item.localTeam.name}</span>
                 </div>
-                <div className="text-lg font-bold">{item.state === "live" ? `${item.localTeam.score} - ${item.visitorTeam.score}` : "-"}</div>
-                <div className="flex items-center space-x-2">
-                  {/* <img src={item.visitorTeam.logo} alt={item.visitorTeam.name} className="w-8 h-8 rounded-full" /> */}
+                <div className="text-lg sm:text-sm font-bold">{item.state === "live" ? `${item.localTeam.score} - ${item.visitorTeam.score}` : "-"}</div>
+                <div className="flex items-center space-x-2 sm:text-sm">
                   <span>{item.visitorTeam.name}</span>
                 </div>
               </td>

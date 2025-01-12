@@ -10,11 +10,14 @@ export default function Home() {
       src="/football.png"
       width={100}
       height={100}
-      className="w-full h-[250px] object-top rounded-3xl"
+      className="w-full h-[250px] object-top rounded-3xl mb-6"
       alt="Football"
+      priority
       unoptimized
     />
-    <MainSection />
+    <div className="rounded-xl bg-[#222222]">
+      <MainSection />
+    </div>
   </div>
 
   <div

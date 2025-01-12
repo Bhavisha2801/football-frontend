@@ -16,7 +16,7 @@ import { SelectedDateProvider } from "../context/SelectedDateContext";
 const MainSection = () => {
   return (
     <SelectedDateProvider>
-      <div className="flex flex-col items-center p-4 bg-[#222222] rounded-2xl">
+      <div className="flex flex-col items-center p-4 rounded-2xl">
         <div className="w-full flex flex-row justify-between items-center">
           <div className="text-[#c3cc5a] bg-[#303030] opacity-15 text-center rounded-lg flex flex-row justify-center items-center w-20 px-4">
             <span className="font-bold">&#8226;</span>
