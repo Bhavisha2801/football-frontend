@@ -52,19 +52,3 @@ yarn dev
 
 application should now be running at http://localhost:3000.
 
-
-#Project Structure
-
-football-frontend/
-├── components/                 # Reusable UI components (e.g., buttons, form elements)
-├── context/                    # React Contexts for global state management (e.g., date selection)
-├── hooks/                      # Custom React hooks (e.g., for fetching matches)
-├── pages/                      # Next.js pages
-│   ├── index.tsx               # Landing page
-│   └── api/                    # API routes (mock backend or real API routes)
-├── public/                     # Static assets (e.g., images, fonts)
-├── styles/                     # Global styles (Tailwind CSS configurations)
-│   └── globals.css
-├── tailwind.config.js          # Tailwind CSS configuration file
-└── package.json                # NPM/Yarn configuration file with scripts and dependencies
-
